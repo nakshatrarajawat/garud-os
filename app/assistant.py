@@ -2,7 +2,7 @@ from memory import remember, recall
 
 
 def get_response(user_input):
-    user_input_lower = user_input.lower()
+    user_input_lower = user_input.lower().strip()
 
     if user_input_lower.startswith("remember "):
         information = user_input[9:].strip()
@@ -23,7 +23,7 @@ def get_response(user_input):
 
         return f"{key} is {value}."
 
-    elif "hello" in user_input_lower or "hi" in user_input_lower:
+    elif user_input_lower in ["hello", "hi", "hey"]:
         return "Hello! How can I help you?"
 
     elif "what can you do" in user_input_lower:
