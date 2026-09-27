@@ -1,13 +1,35 @@
-def get_response(user_input):
-    user_input = user_input.lower()
+from memory import remember, recall
 
-    if "hello" in user_input or "hi" in user_input:
+
+def get_response(user_input):
+    user_input_lower = user_input.lower()
+
+    if user_input_lower.startswith("remember "):
+        information = user_input[9:].strip()
+
+        if "=" in information:
+            key, value = information.split("=", 1)
+            remember(key.strip(), value.strip())
+            return f"I'll remember that {key.strip()} is {value.strip()}."
+
+        return "Use this format: remember name = Nakshatra"
+
+    elif user_input_lower.startswith("recall "):
+        key = user_input[7:].strip()
+        value = recall(key)
+
+        if value is None:
+            return "I don't remember that yet."
+
+        return f"{key} is {value}."
+
+    elif "hello" in user_input_lower or "hi" in user_input_lower:
         return "Hello! How can I help you?"
 
-    elif "what can you do" in user_input:
-        return "Right now I can chat with you. Soon I'll have memory, tools, and AI."
+    elif "what can you do" in user_input_lower:
+        return "I can chat, remember information, and recall it."
 
-    elif "your name" in user_input:
+    elif "your name" in user_input_lower:
         return "I'm Garud."
 
     else:
