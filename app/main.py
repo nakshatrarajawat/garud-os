@@ -1,4 +1,5 @@
 from config import APP_NAME, VERSION
+from assistant import get_response
 
 
 def main():
@@ -11,7 +12,8 @@ def main():
             print("Garud: Goodbye!")
             break
 
-        print(f"Garud: I heard you say: {user_input}")
+        response = get_response(user_input)
+        print(f"Garud: {response}")
 
 
 if __name__ == "__main__":
