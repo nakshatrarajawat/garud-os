@@ -1,5 +1,5 @@
-from config import APP_NAME, VERSION
-from assistant import get_response
+from app.config import APP_NAME, VERSION
+from app.reasoning import process_input
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
             print("Garud: Goodbye!")
             break
 
-        response = get_response(user_input)
+        response = process_input(user_input)
         print(f"Garud: {response}")
 
 
