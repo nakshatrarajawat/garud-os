@@ -1,9 +1,18 @@
+import ollama
+
+
+MODEL = "llama3.2:3b"
+
+
 def generate_response(user_input):
-    """
-    AI model interface.
+    response = ollama.chat(
+        model=MODEL,
+        messages=[
+            {
+                "role": "user",
+                "content": user_input
+            }
+        ]
+    )
 
-    For now, this is a placeholder.
-    Later we can connect a local or cloud AI model here.
-    """
-
-    return None
+    return response["message"]["content"]
