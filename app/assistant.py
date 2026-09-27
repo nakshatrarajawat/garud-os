@@ -1,6 +1,4 @@
-from memory import remember, recall
-
-
+from app.memory import remember, recall
 def get_response(user_input):
     user_input_lower = user_input.lower().strip()
 
