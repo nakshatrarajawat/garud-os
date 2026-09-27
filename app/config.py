@@ -1,0 +1,2 @@
+APP_NAME = "Garud OS"
+VERSION = "0.1"
